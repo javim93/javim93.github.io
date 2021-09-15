@@ -96,7 +96,9 @@
             arr.push(
               <div className="project-tile">
                 <div className="project-img-container">
-                  <img src={list[i].img} />
+                  <a target="_blank" href={"projects/" + list[i].link + "/index.html"}>
+                    <img src={list[i].img} />
+                  </a>
                 </div>
                 <div className="project-link-container">
                   <a className="project-link large-link" target="_blank" href={"projects/" + list[i].link + "/index.html"}>
