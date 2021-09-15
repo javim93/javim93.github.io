@@ -1,9 +1,476 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
-    <title>TESTING</title>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <h1>TESTING</h1>
+
+    <div id="root">
+      <section id="projects"></section>
+      <section id="profile"></section>
+      <section id="contact"></section>
+    </div>
+
+    <script type="text/babel">
+
+      class Navbar extends React.Component {
+        constructor(props) {
+          super(props);
+        };
+        render() {
+          return (
+            <div className="navbarWrapper">
+
+              <div className="lenguageChooser">
+                <button
+                  type="button"
+                  name="lengSelector"
+                  className="lengSelector"
+                  onClick={this.props.changeLeng}
+                >
+                  {this.props.lengAv}
+                </button>
+                <h2 className="leng">{this.props.leng}</h2>
+              </div>
+
+              <div className="navbarListWrapper">
+                <ul className="navbarList">
+                  <li className="navbarListItem">
+                    <a href="#home" className="navbarLink">
+                      {this.props.navbarList[0]}
+                    </a>
+                  </li>
+                  <li className="navbarListItem">
+                    <a href="#projects" className="navbarLink">
+                      {this.props.navbarList[1]}
+                    </a>
+                  </li>
+                  <li className="navbarListItem">
+                    <a href="#profile" className="navbarLink">
+                      {this.props.navbarList[2]}
+                    </a>
+                  </li>
+                  <li className="navbarListItem">
+                    <a href="#contact" className="navbarLink">
+                      {this.props.navbarList[3]}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          );
+        };
+      };
+
+      class Home extends React.Component {
+        constructor(props) {
+          super(props);
+        };
+        render(){
+          return(
+            <div id="home" className="homeWrapper">
+              <h1 className="title">Javier Mazzoni</h1>
+              <h2 className="subtitle">{this.props.homeLeng}</h2>
+            </div>
+          );
+        };
+      };
+
+      class Projects extends React.Component {
+        constructor(props) {
+          super(props);
+          this.addTile = this.addTile.bind(this);
+        };
+        addTile = (list) => {
+          var arr = [];
+          for (let i = 0; i < list.length; i++){
+            arr.push(
+              <div className="project-tile">
+                <div className="project-img-container">
+                  <img src={list[i].img} />
+                </div>
+                <div className="project-link-container">
+                  <a className="project-link large-link" target="_blank" href={list[i].link}>
+                    {list[i].title}
+                  </a>
+                  <a className="project-link" target="_blank" href={list[i].code}>
+                    &lt;code &#47;&gt;
+                  </a>
+                </div>
+              </div>
+            );
+          }
+          return arr;
+        };
+        render() {
+          return (
+            <div id="projects" className="projectsWrapper">
+              <h3>{this.props.projectTitle}</h3>
+              <div className="project-tile-container">
+                {this.addTile(this.props.projects)}
+              </div>
+            </div>
+          );
+        };
+      };
+
+      class Perfil extends React.Component {
+        constructor(props) {
+          super(props);
+        };
+        render() {
+          return (
+            <div id="profile" className="profileWrapper">
+
+              <div className="profile-img-container">
+                <img src="img/profile-square.png" alt="" />
+              </div>
+
+              <div className="profile-info">
+                <h3>¿Quién soy?</h3>
+                <p>
+                  Soy Javier Mazzoni. Tengo 27 años y soy de Buenos Aires,
+                  Argentina.
+
+                  <br/><br/>
+
+                  Esrudié Biology en la Universidad de Buenos Aires y
+                  actualmente me estoy entrenando en el desarrollo web
+                  front-end.
+
+                  <br/><br/>
+
+                  Inicié mis conocimientos principalmente con los cursos de Free Code
+                  Camp sobre: <a
+                    className="certification"
+                    href="https://www.freecodecamp.org/certification/javim93/responsive-web-design"
+                    target="_blank"
+                  >
+                    Responsive Web Design
+                  </a>, <a
+                    className="certification"
+                    href="https://www.freecodecamp.org/certification/javim93/javascript-algorithms-and-data-structures"
+                    target="_blank"
+                  >
+                    JavaScript Algorithms and Data Structure
+                  </a> y <a
+                    className="certification"
+                    href="https://www.freecodecamp.org/certification/javim93/front-end-development-libraries"
+                    target="_blank"
+                  >
+                    Front-end Development Libraries
+                  </a>. Entre otras fuentes, como <a
+                    className="certification"
+                    href="https://www.udemy.com/certificate/UC-337aeb09-4b88-4fff-bca6-7643bdf5c7d5/"
+                    target="_blank"
+                  >
+                    Udemy
+                  </a> o <a
+                    className="certification"
+                    href="https://www.internetingishard.com/"
+                    target="_blank"
+                  >
+                    Interneting is Hard
+                  </a>.
+
+                  <br/><br/>
+
+                </p>
+              </div>
+
+            </div>
+          );
+        };
+      };
+
+      class Profile extends React.Component {
+        constructor(props) {
+          super(props);
+        };
+        render() {
+          return (
+          <div id="profile" className="profileWrapper">
+
+            <div className="profile-img-container">
+              <img src="img/profile-square.png" alt="" />
+            </div>
+
+            <div className="profile-info">
+              <h3>Who am I?</h3>
+              <p>
+                I'm Javier Mazzoni. I'm 27 years old and I am from Buenos Aires,
+                Argentina.
+
+                <br/><br/>
+
+                I've Studied Biology in the Buenos Aires University and I'm
+                currently training myself in front-end web development.
+
+                <br/><br/>
+
+                I started my path mainly with the courses of Free Code Camp
+                about: <a
+                  className="certification"
+                  href="https://www.freecodecamp.org/certification/javim93/responsive-web-design"
+                  target="_blank"
+                >
+                  Responsive Web Design
+                </a>, <a
+                  className="certification"
+                  href="https://www.freecodecamp.org/certification/javim93/javascript-algorithms-and-data-structures"
+                  target="_blank"
+                >
+                  JavaScript Algorithms and Data Structure
+                </a> and <a
+                  className="certification"
+                  href="https://www.freecodecamp.org/certification/javim93/front-end-development-libraries"
+                  target="_blank"
+                >
+                  Front-end Development Libraries
+                </a>. Besides other sources such as <a
+                  className="certification"
+                  href="https://www.udemy.com/certificate/UC-337aeb09-4b88-4fff-bca6-7643bdf5c7d5/"
+                  target="_blank"
+                >
+                  Udemy
+                </a> or <a
+                  className="certification"
+                  href="https://www.internetingishard.com/"
+                  target="_blank"
+                >
+                  internetingishard
+                </a>.
+              </p>
+            </div>
+
+          </div>
+          );
+        };
+      };
+
+      class Contact extends React.Component {
+        constructor(props) {
+          super(props);
+        };
+        render() {
+          return (
+            <div id="contact" className="contactWrapper">
+              <h3>{this.props.contactTitle}</h3>
+              <ul class="contact-list">
+                <li class="contact-list-item">
+                  <i class="contact-item fab fa-free-code-camp"></i>
+                  <a
+                    class="contact-link"
+                    target="_blank"
+                    href="https://www.freecodecamp.org/javim93"
+                  >
+                    <h4 class="contact-item">FCC</h4>
+                  </a>
+                </li>
+                <li class="contact-list-item">
+                  <i class="contact-item fab fa-github"></i>
+                  <a
+                    class="contact-link"
+                    target="_blank"
+                    href="https://github.com/javim93"
+                  >
+                    <h4 class="contact-item">GitHub</h4>
+                  </a>
+                </li>
+                <li class="contact-list-item">
+                  <i class="contact-item fab fa-linkedin"></i>
+                  <a
+                    class="contact-link"
+                    target="_blank"
+                    href="https://www.linkedin.com/in/javier-mazzoni/"
+                  >
+                    <h4 class="contact-item">LinkedIn</h4>
+                  </a>
+                </li>
+                <li class="contact-list-item">
+                  <i class="contact-item fas fa-envelope"></i>
+                  <a
+                    class="contact-link"
+                    href="mailto:javi.mazzoni@gmail.com"
+                  >
+                    <h4 class="contact-item">Gmail</h4>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          );
+        };
+      };
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            lenguage: 'Español',
+            lengAv: 'Eng',
+          };
+          this.changeLeng = this.changeLeng.bind(this);
+        };
+
+        changeLeng = () => {
+          if (this.state.lenguage === 'Español') {
+            this.setState ({
+              lenguage: 'English',
+              lengAv: 'Spa'
+            });
+          } else {
+            this.setState ({
+              lenguage: 'Español',
+              lengAv: 'Eng'
+            });
+          }
+        };
+
+        render() {
+
+          if (this.state.lenguage === 'Español') {
+            return (
+              <div>
+                <Navbar
+                  leng={this.state.lenguage}
+                  lengAv={this.state.lengAv}
+                  navbarList={['INICIO', 'PROYECTOS', 'PERFIL', 'CONTACTO']}
+                  changeLeng={this.changeLeng}
+                />
+                <Home
+                  homeLeng="Diseñador Web"
+                />
+                <Projects
+                  projectTitle="Algunos proyectos en las que estuve trabajando"
+                  projects={[
+                    {title: "Cerdito animado",
+                      img: "https://i.imgur.com/mKe8XsB.jpg",
+                      link: "https://codepen.io/javim93/full/yLbORwe",
+                      code: "https://github.com/javim93/personal-projects/tree/main/pig-animation"
+                    },
+
+                    {title: "Piedra, Papel o Tijera!",
+                      img: "https://i.imgur.com/BMQEoEV.png",
+                      link: "",
+                      code: "https://github.com/javim93/personal-projects/tree/main/rock-paper-scissor"
+                    },
+
+                    {title: "Reloj 25 + 5",
+                      img: "https://i.imgur.com/joTFJoZ.png",
+                      link: "https://codepen.io/javim93/full/YzVgMgM",
+                      code: "#"
+                    },
+
+                    {title: "Generador de citas aleatorio",
+                      img: "https://i.imgur.com/YPPdBVh.png",
+                      link: "https://codepen.io/javim93/full/ExmMggw",
+                      code: "#"
+                    },
+
+                    {title: "Calculadora JavaScript",
+                      img: "https://i.imgur.com/fPqOUM5.png",
+                      link: "https://codepen.io/javim93/full/qBmvwMy",
+                      code: "#"
+                    },
+
+                    {title: "Previsualizador de Marcado",
+                      img: "https://i.imgur.com/AMa2zMg.png",
+                      link: "https://codepen.io/javim93/full/rNmRboY",
+                      code: "#"
+                    },
+
+                    {title: "Maquina de ruido",
+                      img: "https://i.imgur.com/e9ME8EN.png",
+                      link: "https://codepen.io/javim93/full/KKmEYJa",
+                      code: "#"
+                    }
+                  ]}
+                />
+                <Perfil />
+                <Contact
+                  contactTitle="Ponete en contacto!"
+                />
+              </div>
+            );
+          } else {
+            return (
+              <div>
+                <Navbar
+                  leng={this.state.lenguage}
+                  lengAv={this.state.lengAv}
+                  navbarList={['HOME', 'PROYECTS', 'PROFILE', 'CONTACT']}
+                  changeLeng={this.changeLeng}/>
+                <Home
+                  homeLeng="Web Designer"
+                />
+                <Projects
+                  projectTitle="Some projects I've been working on"
+                  projects={[
+                    {title: "Pig Animation",
+                      img: "https://i.imgur.com/mKe8XsB.jpg",
+                      link: "https://codepen.io/javim93/full/yLbORwe",
+                      code: "https://github.com/javim93/personal-projects/tree/main/pig-animation"
+                    },
+
+                    {title: "Rock, Paper, Scissors!",
+                      img: "https://i.imgur.com/BMQEoEV.png",
+                      link: "",
+                      code: "https://github.com/javim93/personal-projects/tree/main/rock-paper-scissor"
+                    },
+
+                    {title: "25 + 5 Clock",
+                      img: "https://i.imgur.com/joTFJoZ.png",
+                      link: "https://codepen.io/javim93/full/YzVgMgM",
+                      code: "#"
+                    },
+
+                    {title: "Random Quote Generator",
+                      img: "https://i.imgur.com/YPPdBVh.png",
+                      link: "https://codepen.io/javim93/full/ExmMggw",
+                      code: "#"
+                    },
+
+                    {title: "JavaScript Calculator",
+                      img: "https://i.imgur.com/fPqOUM5.png",
+                      link: "https://codepen.io/javim93/full/qBmvwMy",
+                      code: "#"
+                    },
+
+                    {title: "Markdown Visualizer",
+                      img: "https://i.imgur.com/AMa2zMg.png",
+                      link: "https://codepen.io/javim93/full/rNmRboY",
+                      code: "#"
+                    },
+
+                    {title: "Drum-machine",
+                      img: "https://i.imgur.com/e9ME8EN.png",
+                      link: "https://codepen.io/javim93/full/KKmEYJa",
+                      code: "#"
+                    }
+                  ]}
+                />
+                <Profile />
+                <Contact
+                  contactTitle="Contact me!"
+                />
+              </div>
+            );
+          }
+        };
+      };
+
+      ReactDOM.render(<App/>, document.getElementById('root'))
+
+    </script>
+
   </body>
 </html>
