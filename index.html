@@ -99,7 +99,7 @@
                   <img src={list[i].img} />
                 </div>
                 <div className="project-link-container">
-                  <a className="project-link large-link" target="_blank" href={list[i].link}>
+                  <a className="project-link large-link" target="_blank" href={"projects/" + list[i].link + "/index.html"}>
                     {list[i].title}
                   </a>
                   <a className="project-link" target="_blank" href={list[i].code}>
@@ -354,13 +354,13 @@
                   projects={[
                     {title: "Cerdito animado",
                       img: "https://i.imgur.com/mKe8XsB.jpg",
-                      link: "projects/pig-animation/index.html",
+                      link: "pig-animation",
                       code: "https://github.com/javim93/personal-projects/tree/main/pig-animation"
                     },
 
                     {title: "Piedra, Papel o Tijera!",
                       img: "https://i.imgur.com/BMQEoEV.png",
-                      link: "projects/rock-paper-scissor/index.html",
+                      link: "rock-paper-scissor",
                       code: "https://github.com/javim93/personal-projects/tree/main/rock-paper-scissor"
                     }
                   ]}
@@ -387,13 +387,13 @@
                   projects={[
                     {title: "Pig Animation",
                       img: "https://i.imgur.com/mKe8XsB.jpg",
-                      link: "projects/pig-animation/index.html",
+                      link: "pig-animation",
                       code: "https://github.com/javim93/personal-projects/tree/main/pig-animation"
                     },
 
                     {title: "Rock, Paper, Scissors!",
                       img: "https://i.imgur.com/BMQEoEV.png",
-                      link: "projects/rock-paper-scissor/index.html",
+                      link: "rock-paper-scissor",
                       code: "https://github.com/javim93/personal-projects/tree/main/rock-paper-scissor"
                     }
                   ]}
