@@ -5,7 +5,7 @@ class Navbar extends React.Component {
       lenguage: ['Español', 'English'],
       selector: ['Eng', 'Spa'],
       navbarList: [
-        ['INICIO', 'PROYECTOS', 'PERFIL', 'CONTACTO'],
+        ['INIIIIIIIIIIIIIIIIIIIICIO', 'PROYECTOS', 'PERFIL', 'CONTACTO'],
         ['HOME', 'PROJECTS', 'PROFILE', 'CONCTACT']
       ]
     };
