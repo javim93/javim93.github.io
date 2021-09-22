@@ -352,6 +352,10 @@ class App extends React.Component {
             {title: ["Piedra, Papel o Tijera!", "Rock, Paper, Scissor!"],
               img: "rock-paper-scissor.png",
               link: "rock-paper-scissor"
+            },
+            {title: ["Generador de citas", "Random quote generator"],
+              img: "random-quote-generator.png",
+              link: "random-quote-generator"
             }
 
             /*============PARA AGREGAR UN NUEVO PROYECTO=================
