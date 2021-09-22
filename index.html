@@ -12,7 +12,7 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
-    <body>
+  <body>
     <div id="app"></div>
     <!---==============================REACT==============================-->
     <script type="text/babel">
@@ -113,7 +113,7 @@
                   <a
                     target="_blank"
                     href={"projects/" + list[i].link + "/index.html"}>
-                    <img src={list[i].img} />
+                    <img src={"img/" + list[i].img} />
                   </a>
                 </div>
                 <div className="projectLinkContainer">
@@ -365,11 +365,11 @@
                 translator={this.state.translator}
                 projects={[
                   {title: ["Cerdito animado", "Animated pig"],
-                    img: "https://i.imgur.com/mKe8XsB.jpg",
+                    img: "pig-animation.jpg",
                     link: "pig-animation"
                   },
                   {title: ["Piedra, Papel o Tijera!", "Rock, Paper, Scissor!"],
-                    img: "https://i.imgur.com/BMQEoEV.png",
+                    img: "rock-paper-scissor.png",
                     link: "rock-paper-scissor"
                   }
 
