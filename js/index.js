@@ -355,7 +355,7 @@ class App extends React.Component {
             }
 
             /*============PARA AGREGAR UN NUEVO PROYECTO=================
-              {title: ["", ""],
+            {title: ["", ""],
               img: "",
               link: ""
             }
