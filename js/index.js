@@ -151,7 +151,7 @@ class Profile extends React.Component {
               <br/><br/>
 
               Estudié en la Universidad de Buenos Aires donde me
-              gradué de Licenciado en Ciencias Biológicas, y actualmente
+              gradué como Licenciado en Ciencias Biológicas, y actualmente
               me estoy entrenando en el desarrollo web front-end.
 
               <br/><br/>
