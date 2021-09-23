@@ -257,3 +257,22 @@ body {
     transform: rotate(-160deg);
   }
 }
+
+h1 {
+  font-size: 15px;
+  color: #bbbbbb;
+  position: absolute;
+  top: 92%;
+  left: 40vw;
+  width: 20vw;
+}
+.sign,
+.sign:visited {
+  color: #bbbbbb;
+  text-decoration: none;
+}
+.sign:hover,
+.sign:visited:hover {
+  color: #444444;
+  text-decoration: underline;
+}
