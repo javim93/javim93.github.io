@@ -358,7 +358,7 @@ class App extends React.Component {
               link: "random-quote-generator"
             },
             {title: ["Reloj 25 + 5", "25 + 5 Clock"],
-              img: "",
+              img: "25+5-clock.png",
               link: "25+5-clock"
             }
 
