@@ -117,7 +117,7 @@ class QuoteGenerator extends React.Component {
             className="profile"
             href="https://github.com/javim93"
             target="_blank">
-              javim93
+              @javim93
           </a>
         </h3>
       </div>
