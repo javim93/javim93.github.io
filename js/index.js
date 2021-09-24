@@ -356,6 +356,10 @@ class App extends React.Component {
             {title: ["Generador de citas", "Random quote generator"],
               img: "random-quote-generator.png",
               link: "random-quote-generator"
+            },
+            {title: ["Reloj 25 + 5", "25 + 5 Clock"],
+              img: "",
+              link: "25+5-clock"
             }
 
             /*============PARA AGREGAR UN NUEVO PROYECTO=================
