@@ -134,6 +134,13 @@ class App extends React.Component {
   };
 
   render() {
+    const playButton = () => {
+      if (this.state.running) {
+        return "actionIcon fas fa-pause"
+      } else {
+        return "actionIcon fas fa-play"
+      }
+    };
     return (
       <div className="appWrapper">
 
@@ -141,41 +148,49 @@ class App extends React.Component {
           <div className="lengthDiv">
             <h2>Break Length</h2>
             <div className="timeButtons">
-              <button
-                onClick={this.handleBreakLength.bind(this)}
-                type="button"
-                name="button"
-                value="rest"
-                className="lengthButton">-
-              </button>
-              <h3>{this.state.breakLength}</h3>
-              <button
-                onClick={this.handleBreakLength.bind(this)}
-                type="button"
-                name="button"
-                value="add"
-                className="lengthButton">+
-              </button>
+              <div className="buttonDiv">
+                <button
+                  onClick={this.handleBreakLength.bind(this)}
+                  type="button"
+                  name="button"
+                  value="rest"
+                  className="lengthButton"></button>
+                <i class="fas fa-arrow-up"></i>
+              </div>
+              <h3 className="timeDisplay">{this.state.breakLength}</h3>
+              <div className="buttonDiv">
+                <button
+                  onClick={this.handleBreakLength.bind(this)}
+                  type="button"
+                  name="button"
+                  value="add"
+                  className="lengthButton"></button>
+                <i class="fas fa-arrow-up"></i>
+              </div>
             </div>
           </div>
           <div className="lengthDiv">
             <h2>Session Length</h2>
             <div className="timeButtons">
-              <button
-                onClick={this.handleSessionLength.bind(this)}
-                type="button"
-                name="button"
-                value="rest"
-                className="lengthButton">-
-              </button>
-              <h3>{this.state.sessionLength}</h3>
-              <button
-                onClick={this.handleSessionLength.bind(this)}
-                type="button"
-                name="button"
-                value="add"
-                className="lengthButton">+
-              </button>
+              <div className="buttonDiv">
+                <button
+                  onClick={this.handleSessionLength.bind(this)}
+                  type="button"
+                  name="button"
+                  value="rest"
+                  className="lengthButton"></button>
+                <i class="fas fa-arrow-down"></i>
+              </div>
+              <h3 className="timeDisplay">{this.state.sessionLength}</h3>
+              <div className="buttonDiv">
+                <button
+                  onClick={this.handleSessionLength.bind(this)}
+                  type="button"
+                  name="button"
+                  value="add"
+                  className="lengthButton"></button>
+                <i class="fas fa-arrow-up"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -184,23 +199,31 @@ class App extends React.Component {
           <h2>{this.state.stage}</h2>
           <h3>{this.state.minutes}:{this.state.seconds}</h3>
           <audio ref={this.audio} id="beep" src="beep.mp3"></audio>
+          <div className="actionButtons">
+            <div class="playPause">
+              <button
+                className="actionButton"
+                type="button"
+                name="button"
+                onClick={this.handleStartStop.bind(this)}>
+              </button>
+              <i class={playButton()}></i>
+            </div>
+            <div className="resetButton">
+              <button
+                className="actionButton"
+                onClick={this.resetTimer.bind(this)}
+                type="button"
+                name="button">Reset
+              </button>
+              <i class="actionIcon fas fa-sync-alt"></i>
+            </div>
+          </div>
         </div>
 
-        <div className="actionButtons">
-          <button
-            type="button"
-            name="button"
-            onClick={this.handleStartStop.bind(this)}>Play/Pause
-          </button>
-          <button
-            onClick={this.resetTimer.bind(this)}
-            type="button"
-            name="button">Reset
-          </button>
-        </div>
       </div>
     );
   };
-};
+  };
 
 ReactDOM.render(<App />, document.getElementById("root"));
