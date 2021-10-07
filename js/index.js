@@ -360,6 +360,10 @@ class App extends React.Component {
             {title: ["Reloj 25 + 5", "25 + 5 Clock"],
               img: "25+5-clock.png",
               link: "25+5-clock"
+            },
+            {title: ["Maquina de ruido", "Drum machine"],
+              img: "drum-machine.png",
+              link: "drumMachine"
             }
 
             /*============PARA AGREGAR UN NUEVO PROYECTO=================
