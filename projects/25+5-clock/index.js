@@ -123,7 +123,7 @@ class App extends React.Component {
     this.setState ({
       running: false,
       sessionLength: "25",
-      breakLength: "05",
+      breakLength: "5",
       minutes: "25",
       seconds: "00",
       stage: "Session"
