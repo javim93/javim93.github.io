@@ -70,6 +70,7 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .lengthButton {
   width: 100%;
@@ -77,6 +78,7 @@ h4 {
   opacity: 0;
   z-index: 1;
   position: absolute;
+  cursor: pointer;
 }
 .fas {
   font-size: 1.5em;
@@ -124,6 +126,7 @@ h4 {
   justify-content: center;
   align-items: center;
   margin: 0 5px;
+  cursor: pointer;
 }
 .actionButton {
   width: 100%;
@@ -131,6 +134,7 @@ h4 {
   opacity: 0;
   z-index: 1;
   position: absolute;
+  cursor: pointer;
 }
 .actionIcon {
   font-size: 1.1em;
