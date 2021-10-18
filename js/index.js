@@ -1,27 +1,27 @@
 const projects = [
-  {title: ["Cerdito animado", "Animated pig"],
+  {title: "Cerdito animado",
     img: "pig-animation.jpg",
     link: "pig-animation"
   },
-  {title: ["Piedra, Papel o Tijera!", "Rock, Paper, Scissor!"],
+  {title: "Piedra, Papel o Tijera!",
     img: "rock-paper-scissor.png",
     link: "rock-paper-scissor"
   },
-  {title: ["Generador de citas", "Random quote generator"],
+  {title: "Generador de citas",
     img: "random-quote-generator.png",
     link: "random-quote-generator"
   },
-  {title: ["Reloj 25 + 5", "25 + 5 Clock"],
+  {title: "Reloj 25 + 5",
     img: "25+5-clock.png",
     link: "25+5-clock"
   },
-  {title: ["Maquina de ruido", "Drum machine"],
+  {title: "Maquina de ruido",
     img: "drum-machine.png",
     link: "drumMachine"
   }
 
   /*============PARA AGREGAR UN NUEVO PROYECTO=================
-  {title: ["", ""],
+  {title: "",
     img: "",
     link: ""
   }
@@ -32,13 +32,6 @@ const projects = [
 class Projects extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: [
-        "Algunos proyectos en los que estuve trabajando",
-        "Some projects I've been working on"
-      ],
-    };
-    this.addTile = this.addTile.bind(this);
   };
 
   addTile = (list) => {
@@ -58,7 +51,7 @@ class Projects extends React.Component {
               className="projectLink largeLink"
               target="_blank"
               href={"projects/" + list[i].link + "/index.html"}>
-              {list[i].title[this.props.translator]}
+              {list[i].title}
             </a>
             <a
               className="projectLink"
@@ -76,9 +69,9 @@ class Projects extends React.Component {
   render() {
     return (
       <div className="projectsWrapper">
-        <h3>{this.state.title[this.props.translator]}</h3>
+        <h3>Algunos proyectos en los que estuve trabajando</h3>
         <div className="projectTileContainer">
-          {this.addTile(this.props.projects)}
+          {this.addTile(this.props.projects).bind(this)}
         </div>
       </div>
     );
@@ -88,7 +81,6 @@ class Projects extends React.Component {
 ReactDOM.render(
   <Projects
     projects={projects}
-    translator={0}
   />,
   document.getElementById("PROJECTS")
 );
