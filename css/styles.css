@@ -343,6 +343,8 @@
   color: var(--darkerGrey);
   border-radius: 12px;
   width: max-content;
-  padding: 0 15px;
+  padding: 5px 15px;
   position: absolute;
+  font-size: 0.75em;
+  margin-left: 10px;
 }
