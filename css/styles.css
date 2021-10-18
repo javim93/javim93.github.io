@@ -3,7 +3,7 @@
   --lightGrey: #cccccc;
   --grey: #8c8c8c;
   --darkGrey: #4d4d4d;
-  --darkestGrey: #1a1a1a;
+  --darkerGrey: #1a1a1a;
   --darkBlue: #003366;
   --lightBlue: #004080;
 }
@@ -13,7 +13,7 @@
   box-sizing: border-box;
   font-size: 16px;
   font-family: 'Jost', sans-serif;
-  color: var(--darkestGrey);
+  color: var(--darkerGrey);
 }
 /*===================================NAVBAR===================================*/
 
@@ -41,9 +41,13 @@
   border: 1px solid var(--grey);
   border-radius: 7px;
 }
-.lenguage {
+.lenguage,
+.lenguage:visited {
   font-weight: 400;
+  color: var(--lighterGrey);
+  text-decoration: none;
 }
+
 
 .navbarListWrapper {
   width: 80%;
@@ -198,8 +202,15 @@
 /*==================================PROFILE==================================*/
 
 .profileWrapper {
-  height: 75vh;
   background-color: var(--darkBlue);
+  background:
+    repeating-linear-gradient(
+      37deg,
+      var(--lightBlue) 0px,
+      var(--darkBlue) 1px,
+      var(--darkBlue) 4px,
+      var(--lightBlue) 5px);
+  height: 100vh;
   padding-top: 7.5vh;
   border-bottom: 2px solid var(--grey);
   display: flex;
@@ -207,8 +218,8 @@
   justify-content: center;
 }
 .profileImgContainer {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   border: 2px solid var(--darkGrey);
   border-radius: 50%;
 }
@@ -218,7 +229,7 @@
   border-radius: 50%;
 }
 .profileInfo {
-  margin-left: 125px;
+  margin: 0 0 50px 125px;
   width: 50%;
   text-align: justify;
   display: flex;
@@ -226,13 +237,12 @@
   align-items: center;
 }
 .profileInfo > h3 {
+  width: 100%;
+  text-align: center;
   color: var(--lightGrey);
   font-size: 2em;
-  padding-bottom: 15px;
-}
-.profileInfo > p {
-  font-size: 1.1em;
-  color: var(--lighterGrey);
+  margin: 15px 0 35px 0;
+  border-bottom: 2px solid var(--lightGrey);
 }
 .certification,
 .certification:visited {
@@ -246,11 +256,56 @@
   text-decoration: underline;
 }
 
+.p {
+  font-size: 1.05em;
+  color: var(--lighterGrey);
+  cursor: default;
+}
+.inline {
+  display: inline-flex;
+}
+.materiasContainer {
+  display: flex;
+  width: max-content;
+}
+.materiasWrapper {
+  position: relative;
+  width: auto;
+}
+.materias {
+  background-color: var(--lighterGrey);
+  border: 1px solid var(--darkerGrey);
+  border-radius: 12px;
+  width: max-content;
+  padding: 0 15px 0 25px;
+  opacity: 0;
+  position: absolute;
+  left: -400vw;
+}
+.materias > ul {
+  list-style: disc;
+}
+.materias > ul > li {
+  color: var(--lightBlue);
+}
+.reveal {
+  text-decoration: underline;
+}
+.reveal:hover {
+  text-decoration: none;
+  cursor: default;
+}
+.reveal:hover ~ .materias {
+  left: auto;
+  opacity: 1;
+  z-index: 1;
+}
+
 /*==================================CONTACT==================================*/
 
 .contactWrapper {
   height: 25vh;
-  background-color: var(--darkestGrey);
+  background-color: var(--darkerGrey);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -275,11 +330,13 @@
   justify-content: center;
   align-items: center;
   padding: 0 25px;
+  position: relative;
 }
 .contactItem {
   color: var(--lightGrey);
   text-decoration: none;
   font-size: 1.25em;
+  position: relative;
 }
 .contactLink,
 .contactLink:visited {
@@ -297,4 +354,14 @@
 .fas {
   color: var(--lightBlue);
   font-size: 2em;
+}
+.mail:hover:after {
+  content: "javi.mazzoni@gmail.com";
+  background-color: var(--lighterGrey);
+  border: 1px solid var(--darkerGrey);
+  color: var(--darkerGrey);
+  border-radius: 12px;
+  width: max-content;
+  padding: 0 15px;
+  position: absolute;
 }
