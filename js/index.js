@@ -32,6 +32,7 @@ const projects = [
 class Projects extends React.Component {
   constructor(props) {
     super(props);
+    this.addTile = this.addTile.bind(this);
   };
 
   addTile = (list) => {
@@ -71,7 +72,7 @@ class Projects extends React.Component {
       <div className="projectsWrapper">
         <h3>Algunos proyectos en los que estuve trabajando</h3>
         <div className="projectTileContainer">
-          {this.addTile(this.props.projects).bind(this)}
+          {this.addTile(this.props.projects)}
         </div>
       </div>
     );
