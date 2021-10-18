@@ -27,38 +27,20 @@
   display: flex;
 }
 
-.translator {
-  display: flex;
-  align-items: center;
-  width: 20%;
-}
-.lenguageSelector {
-  margin: 10px;
-  padding: 5px;
-  background-color: var(--darkBlue);
-  color: var(--lighterGrey);
-  font-size: 0.8em;
-  border: 1px solid var(--grey);
-  border-radius: 7px;
-}
-.lenguage,
-.lenguage:visited {
-  font-weight: 400;
-  color: var(--lighterGrey);
-  text-decoration: none;
-}
-
-
 .navbarListWrapper {
-  width: 80%;
+  width: 100%;
   padding-left: 45%;
+  display: flex;
+  justify-content: flex-end;
 }
 .navbarList {
+  width: 80%;
   height: 100%;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  border: 1px solid red;
 }
 .navbarLink,
 .navbarLink:visited {
