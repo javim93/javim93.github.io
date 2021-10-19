@@ -1,3 +1,236 @@
+const bankOne = [
+  {
+    keyCode: 81,
+    keyTrigger: 'Q',
+    id: 'Heater-1',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+  },
+  {
+    keyCode: 87,
+    keyTrigger: 'W',
+    id: 'Heater-2',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
+  },
+  {
+    keyCode: 69,
+    keyTrigger: 'E',
+    id: 'Heater-3',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
+  },
+  {
+    keyCode: 65,
+    keyTrigger: 'A',
+    id: 'Heater-4',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
+  },
+  {
+    keyCode: 83,
+    keyTrigger: 'S',
+    id: 'Clap',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
+  },
+  {
+    keyCode: 68,
+    keyTrigger: 'D',
+    id: 'Open-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'
+  },
+  {
+    keyCode: 90,
+    keyTrigger: 'Z',
+    id: "Kick-n'-Hat",
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
+  },
+  {
+    keyCode: 88,
+    keyTrigger: 'X',
+    id: 'Kick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
+  },
+  {
+    keyCode: 67,
+    keyTrigger: 'C',
+    id: 'Closed-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
+  }
+];
+
+const bankTwo = [
+  {
+    keyCode: 81,
+    keyTrigger: 'Q',
+    id: 'Chord-1',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3'
+  },
+  {
+    keyCode: 87,
+    keyTrigger: 'W',
+    id: 'Chord-2',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3'
+  },
+  {
+    keyCode: 69,
+    keyTrigger: 'E',
+    id: 'Chord-3',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3'
+  },
+  {
+    keyCode: 65,
+    keyTrigger: 'A',
+    id: 'Shaker',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3'
+  },
+  {
+    keyCode: 83,
+    keyTrigger: 'S',
+    id: 'Open-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3'
+  },
+  {
+    keyCode: 68,
+    keyTrigger: 'D',
+    id: 'Closed-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3'
+  },
+  {
+    keyCode: 90,
+    keyTrigger: 'Z',
+    id: 'Punchy-Kick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3'
+  },
+  {
+    keyCode: 88,
+    keyTrigger: 'X',
+    id: 'Side-Stick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3'
+  },
+  {
+    keyCode: 67,
+    keyTrigger: 'C',
+    id: 'Snare',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
+  }
+];
+
+const activeStyle = {
+  backgroundColor: "orange",
+  boxShadow: "0 3px orange"
+};
+
+const inactiveStyle = {
+  backgroundColor: "grey",
+  boxShadow: "3px 3px 5px black"
+};
+
+class DrumPad extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      padStyle: inactiveStyle
+    };
+    this.playSound = this.playSound.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.activePad = this.activePad.bind(this);
+  };
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
+  };
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  };
+  handleKeyPress(e) {
+    if (e.keyCode === this.props.keyCode) {
+      this.playSound();
+    }
+  };
+  activePad() {
+    if (this.props.power) {
+      if (this.state.padStyle.backgroundColor === 'orange') {
+        this.setState ({
+          padStyle: inactiveStyle
+        });
+      } else {
+        this.setState ({
+          padStyle: activeStyle
+        });
+      }
+    } else if (this.state.padStyle.marginTop === 13) {
+      this.setState ({
+        padStyle: inactiveStyle
+      });
+    } else {
+      this.setState ({
+        padStyle: {
+          backgroundColor: 'grey',
+          boxShadow: '0 3px grey'
+        }
+      });
+    }
+  }
+  playSound = () => {
+    const sound = document.getElementById(this.props.keyTrigger);
+    sound.currentTime = 0;
+    sound.play();
+    this.activePad();
+    setTimeout(() => this.activePad(), 100);
+    this.props.updateDisplay(this.props.clipId.replace(/-/g, ' '));
+  };
+  render () {
+    return(
+      <div
+        className="button"
+        id={this.props.clipId}
+        onClick={this.playSound}
+        style={this.state.padStyle}
+        >
+        <audio
+          className="clip"
+          id={this.props.keyTrigger}
+          src={this.props.clip}
+        />
+        {this.props.keyTrigger}
+      </div>
+    );
+  };
+};
+
+class PadBank extends React.Component {
+  constructor(props) {
+    super(props);
+  };
+  render() {
+    let padBank;
+    if (this.props.power) {
+      padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
+        return (
+          <DrumPad
+            clip={padBankArr[i].url}
+            clipId={padBankArr[i].id}
+            keyCode={padBankArr[i].keyCode}
+            keyTrigger={padBankArr[i].keyTrigger}
+            power={this.props.power}
+            updateDisplay={this.props.updateDisplay}
+          />
+        );
+      });
+    } else {
+      padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
+        return (
+          <DrumPad
+            clip='#'
+            clipId={padBankArr[i].id}
+            keyCode={padBankArr[i].keyCode}
+            keyTrigger={padBankArr[i].keyTrigger}
+            power={this.props.power}
+            updateDisplay={this.props.updateDisplay}
+          />
+        );
+      });
+    }
+    return <div className="buttonPad">{padBank}</div>
+  };
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -5,11 +238,16 @@ class App extends React.Component {
       power: false,
       display: String.fromCharCode(160),
       sliderVal: 0.3,
-      bank: 0
+      currentPadBank: bankOne,
+      currentPadBankId: 'Heater Kit'
     };
+    this.displayClipName = this.displayClipName.bind(this);
+    this.selectBank = this.selectBank.bind(this);
+    this.adjustVolume = this.adjustVolume.bind(this);
+    this.powerControl = this.powerControl.bind(this);
     this.clearDisplay = this.clearDisplay.bind(this);
   };
-  powerBank = () => {
+  powerControl = () => {
     const power = () => {
       if (this.state.power) {
         return "OFF"
@@ -23,6 +261,30 @@ class App extends React.Component {
     });
     setTimeout(() => this.clearDisplay(), 1000);
   };
+  selectBank = () => {
+    if (this.state.power) {
+      if (this.state.currentPadBankId === 'Heater Kit') {
+        this.setState ({
+          currentPadBank: bankTwo,
+          display: 'Smooth Piano Kit',
+          currentPadBankId: 'Smooth Piano Kit'
+        });
+      } else {
+        this.setState ({
+          currentPadBank: bankOne,
+          display: 'Heater Kit',
+          currentPadBankId: 'Heater Kit'
+        });
+      }
+    };
+  };
+  displayClipName = (name) => {
+    if (this.state.power) {
+      this.setState ({
+        display: name
+      });
+    }
+  };
   adjustVolume = (e) => {
     if (this.state.power) {
       this.setState ({
@@ -32,154 +294,68 @@ class App extends React.Component {
       setTimeout(() => this.clearDisplay(), 1000);
     }
   };
-  changeBank = () => {
-    if (this.state.bank === 0) {
-      this.setState ({
-        bank: 1,
-        display: "Bank 2"
-      });
-      setTimeout(() => this.clearDisplay(), 1000);
-    } else {
-      this.setState ({
-        bank: 0,
-        display: "Bank 1"
-      });
-      setTimeout(() => this.clearDisplay(), 1000);
-    }
-  };
-  reproduceSound = () => {
-    return true
-  };
   clearDisplay = () => {
     this.setState ({
       display: String.fromCharCode(160)
     });
   };
   render () {
-    const bankSwitch = () => {
-      if (this.state.power) {
-        if (this.state.bank === 0) {
-          return {
-            left: "2px",
-            backgroundColor: "var(--hardBlue)"
-          }
-        } else {
-          return {
-            right: "2px",
-            backgroundColor: "var(--hardBlue)"
-          }
-        }
-      } else {
-        if (this.state.bank === 0) {
-          return {
-            left: "2px",
-            backgroundColor: "var(--softBlue)"
-          }
-        } else {
-          return {
-            right: "2px",
-            backgroundColor: "var(--softBlue)"
-          }
-        }
-      }
-    };
-    const powerSwitchPosition = () => {
+    const powerSlider = () => {
       if (this.state.power) {
         return {
-          right: "2px"
-        }
-      } else {
-        return {
-          left: "2px"
-        }
-      }
-    };
-    const powerColor = () => {
-      if (this.state.power) {
-        return {
+          right: "2px",
           backgroundColor: "var(--green)"
         }
       } else {
         return {
+          left: "2px",
           backgroundColor: "var(--red)"
         }
       }
     };
+    const bankSlider = () => {
+      if (this.state.power) {
+        if (this.state.currentPadBank === bankOne) {
+          return {
+            left: "2px",
+            backgroundColor: "var(--hardBlue)"
+          }
+        } else {
+          return {
+            right: "2px",
+            backgroundColor: "var(--hardBlue)"
+          }
+        }
+      } else {
+        return {
+          left: "2px",
+          backgroundColor: "var(--softBlue)"
+        }
+      }
+    };
+
+    {
+      const clips = [].slice.call(document.getElementsByClassName('clip'));
+      clips.forEach(sound => {
+        sound.volume = this.state.sliderVal;
+      });
+    }
     return (
       <div className="drumMachine">
-        <div className="buttonPad">
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            Q
-          </button>
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            W
-          </button>
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            E
-          </button>
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            A
-          </button>
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            S
-          </button>
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            D
-          </button>
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            Z
-          </button>
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            X
-          </button>
-          <button
-            onClick={this.reproduceSound.bind(this)}
-            type="button"
-            className="button"
-          >
-            C
-          </button>
-        </div>
+        <PadBank
+          clipVolume={this.state.sliderVal}
+          currentPadBank={this.state.currentPadBank}
+          power={this.state.power}
+          updateDisplay={this.displayClipName}
+        />
+
         <div className="settingDiv">
           <div className="switchDiv">
-            <h2>Power</h2>
-            <div className="switch">
-              <button
-                style={Object.assign(powerSwitchPosition(), powerColor())}
-                className="switchKnob"
-                onClick={this.powerBank.bind(this)}></button>
+            <div>
+              <h2>Power</h2>
+              <div className="switch" onClick={this.powerControl}>
+                <div className="switchKnob" style={powerSlider()}></div>
+              </div>
             </div>
             <div className="buttonName">
               <h2>{this.state.display}</h2>
@@ -189,17 +365,14 @@ class App extends React.Component {
                 max="1"
                 min="0"
                 step="0.01"
-                onChange={this.adjustVolume.bind(this)}
+                onChange={this.adjustVolume}
                 type="range"
                 value={this.state.sliderVal} />
             </div>
             <div className="switchDiv">
               <h2>Sounds Bank</h2>
-              <div className="switch">
-                <button
-                  style={bankSwitch()}
-                  className="switchKnob"
-                  onClick={this.changeBank.bind(this)}></button>
+              <div className="switch" onClick={this.selectBank}>
+                <div style={bankSlider()} className="switchKnob"></div>
               </div>
             </div>
           </div>
