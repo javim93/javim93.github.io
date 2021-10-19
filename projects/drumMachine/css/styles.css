@@ -56,9 +56,6 @@
   box-shadow: 2px 2px 2px var(--darkestGrey);
   cursor: pointer;
 }
-.button:active {
-  background-color: var(--orange);
-}
 
 /*==================================SETTINGS==================================*/
 
@@ -91,7 +88,6 @@
   cursor: pointer;
   border: none;
   border-radius: 1px;
-  background-color: var(--blue);
 }
 
 .buttonName {
