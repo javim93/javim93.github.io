@@ -1,0 +1,136 @@
+:root {
+  --grey: rgb(238, 238, 238);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: 'Oswald', sans-serif;
+}
+
+body {
+  background-color: var(--grey);
+  text-align: center;
+}
+h1 {
+  font-size: 5rem;
+  padding: 40px 0 10px 0;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  padding: 10px 0 25px 0;
+  color: #444444;
+}
+.img-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 0;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+}
+img {
+  width: 75vw;
+}
+.picture-caption {
+  font-size: 0.7rem;
+  padding: 5px 0;
+  color: #666666;
+}
+.article {
+  margin: 0 auto;
+  width: 40%;
+}
+.article > h4 {
+  font-size: 2.5rem;
+  padding: 40px 0 20px 0;
+}
+.list-item {
+  font-size: 1.6rem;
+  padding: 10px 5px;
+  text-align: left;
+  color: #444444;
+}
+strong {
+  color: #000000;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.cite {
+  text-align: left;
+  margin-top: 40px;
+  font-size: 3rem;
+  color: #444444;
+}
+.cite-sign {
+  font-style: italic;
+  font-size: 1.5rem;
+  margin: 20px 0 0 120px;
+}
+.external-link {
+  margin-top: 40px;
+
+}
+.external-link > h3 {
+  font-size: 1.1rem;
+}
+.link,
+.link:visited {
+  color: #51b4e6;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.link:hover,
+.link:visited:hover {
+  color: #ff9966;
+  text-decoration: underline;
+}
+.external-link > h4 {
+  margin-top: 40px;
+  font-size: 0.8rem;
+  padding: 5px;
+}
+.sign,
+.sign:visited {
+  color: #51b4e6;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.sign:hover,
+.sign:visited:hover {
+  color: #ff9966;
+  text-decoration: underline;
+}
+
+/*==================================DESKTOP==================================*/
+@media screen and (min-width: 480px) and (orientation: landscape) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  .picture-caption {
+    font-size: 1.8rem;
+  }
+  .cite-sign {
+    font-size: 2rem;
+  }
+  .external-link > h3 {
+    font-size: 2.5rem;
+  }
+  .link,
+  .link:visited {
+    font-size: 2.5rem;
+  }
+  .external-link > h4 {
+    font-size: 1.2rem;
+  }
+  .sign,
+  .sign:visited {
+    font-size: 1.2rem;
+  }
+}
