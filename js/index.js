@@ -18,6 +18,10 @@ const projects = [
   {title: "Maquina de ruido",
     img: "drum-machine.png",
     link: "drumMachine"
+  },
+  {title: "Página tributo",
+    img: "tribute-page.png",
+    link: "tribute-page"
   }
 
   /*============PARA AGREGAR UN NUEVO PROYECTO=================
