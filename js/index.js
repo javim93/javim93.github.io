@@ -26,6 +26,10 @@ const projects = [
   {title: "Formulario de usuario",
     img: "survey-form.png",
     link: "survey-form"
+  },
+  {title: "Original Trombones",
+    img: "product-landing-page.png",
+    link: "product-landing-page"
   }
 
   /*============PARA AGREGAR UN NUEVO PROYECTO=================
