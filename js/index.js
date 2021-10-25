@@ -33,9 +33,9 @@ const projects = [
   }
 
   /*============PARA AGREGAR UN NUEVO PROYECTO=================
-  {title: "",
-    img: "",
-    link: ""
+  {title: "TITULO DEL PROYECTO",
+    img: "NOMBRE DEL ARCHIVO DE LA IMAGEN MINIATURA",
+    link: "NOMBRE DE LA CARPETA DEL REPOSITORIO DONDE ESTÁ EL PROYECTO"
   }
   ============================================================*/
 
