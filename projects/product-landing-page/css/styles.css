@@ -1,0 +1,252 @@
+:root {
+  --grey: #bfbfbf;
+  --bgGrey: #eeeeee;
+  --yellow: #f1c40f;
+  --orange: #ff8c00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  background-color: var(--bgGrey);
+}
+
+/*===================================NAVBAR===================================*/
+nav {
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 80px;
+  background-color: var(--bgGrey);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--orange);
+}
+
+.logo-container {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  width: 100%;
+}
+.navbar-container {
+  width: 50%;
+}
+.navbar-container > ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
+.navbar-link,
+.navbar-link:visited {
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+}
+
+/*====================================MAIN====================================*/
+
+.main {
+  padding-top: 80px;
+}
+/*NEWSTELLER*/
+.newsteller {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+.newsteller > h2 {
+  font-size: 2.5rem;
+  padding: 20px 0 5px 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  padding: 5px 0 20px 0;
+}
+.newsteller-input {
+  font-size: 2rem;
+  width: 100%;
+  padding: 5px;
+  border: none;
+}
+.button {
+  margin: 10px 0;
+  padding: 10px;
+  width: 80%;
+  font-size: 2rem;
+  font-weight: 700;
+  background-color: var(--yellow);
+  border: none;
+}
+/*FEATURES*/
+#features {
+  margin: 0 auto;
+  width: 80%;
+  border-top: 1px solid var(--orange);
+  border-bottom: 1px solid var(--orange);
+}
+.grid {
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.icon {
+  font-size: 1.8rem;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--orange);
+}
+.desc {
+  width: 80%;
+}
+.desc > h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.desc > p {
+  font-size: 1.8rem;
+  text-align: justify;
+}
+/*HOW IT WORKS*/
+#how-it-works {
+  margin: 100px 0;
+  text-align: center;
+}
+iframe {
+  width: 560px;
+}
+/*PRICING*/
+#pricing {
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1px solid var(--orange);
+}
+.instrument {
+  border: 1px solid black;
+  width: 30%;
+  text-align: center;
+}
+.instrument-name {
+  background-color: var(--grey);
+  padding: 15px 0;
+}
+.instrument-name > h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.instrument-desc {
+  padding-top: 20px;
+}
+.instrument-desc > h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 10px 0;
+}
+.instrument-desc > p {
+  font-size: 1.8rem;
+  padding: 10px 0;
+}
+
+/*===================================FOOTER===================================*/
+footer {
+  position: relative;
+  margin-top: 75px;
+  background-color: var(--grey);
+  border-top: 1px solid var(--yellow);
+}
+footer > ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  padding: 10px 0;
+}
+footer > ul > li {
+  padding: 0 15px;
+}
+.footer-link,
+.footer-link:visited {
+  font-size: 1.8rem;
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+footer > p {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.6rem;
+}
+.sign,
+.sign:visited {
+  font-size: 1.6rem;
+  color: var(--orange);
+  text-decoration: none;
+}
+.sign:hover,
+.sign:visited:hover {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+
+/*==================================DESKTOP==================================*/
+@media screen and (min-width: 481px) and (orientation: landscape) {
+
+  /*NAVBAR*/
+  .navbar-link:hover,
+  .navbar-link:visited:hover {
+    text-decoration: underline;
+    color: var(--orange);
+  }
+  /*===========MAIN===========*/
+  /*NEWSTELLER*/
+  .newsteller {
+    height: 35vh;
+  }
+  .newsteller > h2 {
+    padding: 25px 0 15px 0;
+  }
+  .newsteller-input {
+    width: 70%;
+  }
+  .button {
+    width: 70%;
+  }
+  /*FEATURES*/
+  #features {
+    width: 60%;
+  }
+  /*PRICING*/
+  #pricing {
+    width: 60%;
+  }
+  /*FOOTER*/
+  footer {
+    height: 15vh;
+  }
+}
