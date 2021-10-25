@@ -22,6 +22,10 @@ const projects = [
   {title: "Página tributo",
     img: "tribute-page.png",
     link: "tribute-page"
+  },
+  {title: "Formulario de usuario",
+    img: "survey-form.png",
+    link: "survey-form"
   }
 
   /*============PARA AGREGAR UN NUEVO PROYECTO=================
