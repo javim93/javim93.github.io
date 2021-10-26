@@ -30,6 +30,10 @@ const projects = [
   {title: "Original Trombones",
     img: "product-landing-page.png",
     link: "product-landing-page"
+  },
+  {title: "Documentación técnica (Inglés)",
+    img: "technical-documentation.png",
+    link: "technical-documentation"
   }
 
   /*============PARA AGREGAR UN NUEVO PROYECTO=================
