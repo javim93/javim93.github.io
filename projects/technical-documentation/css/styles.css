@@ -1,0 +1,201 @@
+:root {
+  --font: #333333;
+  --bgGrey: #f2f2f2;
+  --darkGrey: #333333;
+  --lightGrey: #d9d9d9;
+  --red: #ff3333;
+  --blue: #0099ff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+/*====================================BODY====================================*/
+body {
+  background-color: var(--bgGrey);
+  color: var(--font);
+  position: relative;
+}
+/*===================================NAVBAR===================================*/
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--darkGrey);
+
+  height: 10vh;
+  font-size: 5rem;
+}
+.navbar-list {
+  overflow-y: scroll;
+
+  height: 500px;
+  border-bottom: 3px solid var(--darkGrey);
+}
+.navbar-list > li {
+  border-bottom: 1px solid var(--darkGrey);
+  display: flex;
+  align-items: center;
+
+  height: 100px;
+  padding: 0 40px;
+}
+.navbar-link,
+.navbar-link:visited {
+  color: var(--font);
+  text-decoration: none;
+
+  font-size: 3.5rem;
+}
+/*====================================MAIN====================================*/
+
+.main {
+  padding: 50px 50px;
+}
+.container {
+  margin-bottom: 50px;
+}
+h2 {
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--darkGrey);
+}
+.info {
+  padding: 0 55px;
+}
+p {
+  text-align: justify;
+  font-size: 1.5rem;
+}
+.article-list {
+  padding: 0 60px;
+  text-align: justify;
+}
+.article-list-item {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+code {
+  padding: 5px;
+  max-width: max-content;
+  background-color: var(--lightGrey);
+  font-size: 1.3rem;
+  font-family:
+    Consolas,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New;
+}
+.sub-list {
+  padding: 0 30px;
+}
+.sub-list-item {
+  font-size: 1.3rem;
+
+}
+.article-link,
+.article-link:visited {
+  color: var(--blue);
+  font-size: 1.3rem;
+}
+
+/*===================================FOOTER===================================*/
+footer {
+  background-color: var(--lightGrey);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3 {
+  font-size: 2.3rem;
+}
+.sign,
+.sign:visited {
+  font-size: 2.3rem;
+  color: var(--blue);
+  text-decoration: none;
+}
+/*============================================================================*/
+/*==================================DESKTOP==================================*/
+@media screen and (min-width: 481px) and (orientation: landscape) {
+  /*===========================NAVBAR===========================*/
+  header {
+    width: 25vw;
+    height: 100%;
+    position: fixed;
+    border-right: 2px solid var(--darkGrey);
+  }
+  h1 {
+    height: 15vh;
+    width: inherit;
+    position: fixed;
+    font-size: 3rem;
+  }
+  .navbar-list {
+    margin-top: 15vh;
+    height: 85vh;
+
+    border-bottom: none;
+  }
+  .navbar-list > li {
+    height: 60px;
+    padding: 5px 15px;
+  }
+  .navbar-link,
+  .navbar-link:visited {
+    font-size: 1.8rem;
+  }
+  /*============================MAIN============================*/
+  .main {
+    width: 75vw;
+    margin-left: 25vw;
+    padding: 30px 40px;
+  }
+  .container {
+    margin-bottom: 30px;
+  }
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+  .info {
+    padding: 0 30px;
+  }
+  .article-list {
+    padding: 0 30px;
+  }
+  .sub-list {
+    padding: 0 20px;
+  }
+  .article-link:hover,
+  .article-link:visited:hover {
+    color: var(--red);
+    text-decoration: underline;
+  }
+  /*===========================FOOTER===========================*/
+  footer {
+    width: 75vw;
+    margin-left: 25vw;
+    height: 75px;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  .sign,
+  .sign:visited {
+    font-size: 1.3rem;
+  }
+  .sign:hover,
+  .sign:visited:hover {
+    color: var(--red);
+    text-decoration: underline;
+  }
+}
