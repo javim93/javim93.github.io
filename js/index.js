@@ -19,6 +19,10 @@ const projects = [
     img: "drum-machine.png",
     link: "drumMachine"
   },
+  {title: "Previsualizador de markdown",
+    img: "markdown-preview.png",
+    link: "markdown-preview"
+  },
   {title: "Página tributo",
     img: "tribute-page.png",
     link: "tribute-page"
